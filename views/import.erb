@@ -1,0 +1,18 @@
+<ul>
+  <% @search_results.each_with_index do |recipe, index| %>
+    <li>
+      <span class=name><p><%= recipe.name %></p></span>
+      <span class=description><p><%= recipe.description %></p></span>
+      <span class=rating><p><%= recipe.rating %></p></span>
+      <br>
+      <form action="/import" method="get">
+        <input type="hidden" id="index" name="index" value=<%= index %>><br>
+        <input type="submit" value="Import this recipe?" class="button is-link" />
+      </form>
+    </li>
+  <% end %>
+  <li><a href="/">I don't like any of these.</a></li>
+</ul>
+
+<%# <%= "/import?name=#{name}&description=#{description}&rating=#{rating}" %> %>
+<%# <%       <a href="<% "/choose=#{index}" %>"><p>Import this recipe?</p></a> %> %>

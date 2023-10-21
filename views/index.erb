@@ -1,0 +1,23 @@
+<p></p>
+<p>Welcome to the Cookbook!</p>
+<p>           --           </p>
+<%# <p>What do you want to do next?</p>
+<ul>
+  <li><a href="/list"><button class=menu_option>List all recipes</button></a></li>
+  <li><a href="/new"><button class=menu_option>Add a new recipe</button></a></li>
+  <li><button class=menu_option>Remove a recipe</button></li>
+  <li><button class=menu_option>Import recipes from the Internet</button></li>
+  <li><button class=menu_option>Stop and exit the program</button></li>
+</ul> %>
+<ul>
+  <% @recipes.each_with_index do |recipe, index| %>
+    <li>
+      <span class=name><p><%= recipe.name %></p></span>
+      <span class=description><p><%= recipe.description %></p></span>
+      <span class=rating><p><%= recipe.rating %></p></span>
+      <br>
+      <a href=<%= "/destroy=#{index}" %>><p>Delete this recipe?</a></p>
+    </li>
+  <% end %>
+  <li><a href="/new">Add a new recipe</a></li>
+</ul>
